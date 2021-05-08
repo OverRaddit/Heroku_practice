@@ -23,7 +23,7 @@ const dialogflowFulfillment = (request, response) => {
 
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
     let intentMap = new Map();
-    //intentMap.set("Default Welcome Intent", sayHello)
-    intentMap.set("Lecture", sayHello)
+    intentMap.set("Default Welcome Intent", sayHello)
+    //intentMap.set("Lecture", sayHello)
     agent.handleRequest(intentMap);
 }
