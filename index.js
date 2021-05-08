@@ -11,7 +11,7 @@ app.post('/dialogflow-fulfillment', (request, response) => {
 })
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+    dialogflowFulfillment(request, response)
 })
 
 const dialogflowFulfillment = (request, response) => {
@@ -25,4 +25,5 @@ const dialogflowFulfillment = (request, response) => {
     let intentMap = new Map();
     //intentMap.set("Default Welcome Intent", sayHello)
     intentMap.set("Lecture", sayHello)
+    agent.handleRequest(intentMap);
 }
