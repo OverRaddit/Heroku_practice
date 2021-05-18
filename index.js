@@ -18,7 +18,7 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function sayHello(agent){
-        agent.add("안녕하세요오오오오오~~")
+        agent.add("안녕안녕안녕안녕~~")
     }
 
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
