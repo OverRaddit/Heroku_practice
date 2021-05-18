@@ -23,8 +23,9 @@ const dialogflowFulfillment = (request, response) => {
     }
 
     function sayName(agent){
-        //var name2 = agent.request.queryResult.parameters['name']; 
-        var name = agent.parameters.name['name'];
+        //var name2 = agent.request.queryResult.parameters['name'];
+        var name = agent.request_.body.queryResult.outputContexts[0].parameters['name.original']; 
+        //var name = agent.parameters.name['name'];
         agent.add("[heroku]테슷흐1")
         agent.add(`[heroku]${name}`);
         agent.add("[heroku]" + name);
