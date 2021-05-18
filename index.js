@@ -18,12 +18,12 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function sayHello(agent){
-        agent.add("Hi there, this response is coming from heroku")
+        agent.add("안녕하세요오오오오오~~")
     }
 
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", sayHello)
-    //intentMap.set("Lecture", sayHello)
+    intentMap.set("Lecture", sayHello)
     agent.handleRequest(intentMap);
 }
