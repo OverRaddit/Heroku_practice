@@ -24,10 +24,11 @@ const dialogflowFulfillment = (request, response) => {
 
     function sayName(agent){
         
-        var name = req.body.queryResult.parameters['name']
-        agent.add(name);
-        
-        //agent.add("[heroku]테슷흐")
+        var name = agent.parameters.name;
+        agent.add("[heroku]테슷흐1")
+        agent.add(`[heroku]${name}`);
+        agent.add("[heroku]" + name);
+        agent.add("[heroku]테슷흐2")
     }
 
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
