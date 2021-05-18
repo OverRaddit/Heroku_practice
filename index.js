@@ -26,8 +26,8 @@ const dialogflowFulfillment = (request, response) => {
         
         var name = agent.parameters.name;
         agent.add("[heroku]테슷흐1")
-        agent.add(`[heroku]${name}`);
-        agent.add("[heroku]" + name);
+        agent.add(`[heroku]${name[name]}`);
+        agent.add("[heroku]" + name[name]);
         agent.add("[heroku]테슷흐2")
     }
 
