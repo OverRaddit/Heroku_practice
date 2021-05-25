@@ -45,14 +45,14 @@ const dialogflowFulfillment = (request, response) => {
                     // var imgURL = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
                     // 아이콘 표시
                     //$('#img').attr("src", imgURL);
-                    //tnw
                   }
             });
         agent.add("end of function");
     }
-
+    
     function helloWorld() {
-        return await axios({
+        /*
+        return axios({
           method: "GET",
           url: "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56",
           data: "",
@@ -64,8 +64,17 @@ const dialogflowFulfillment = (request, response) => {
           .catch((error) => {
             console.log(error);
           });
-      }
-
+        */
+        
+        return axios.get('http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56').then((Response)=>{
+          console.log(response.data.main.temp - 272); //Hello World
+          agent.add(response.data.main.temp - 272); 
+        }).catch((Error)=>{
+            console.log(Error);
+        });
+        
+    }
+      
 
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
     let intentMap = new Map();
