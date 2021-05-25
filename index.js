@@ -29,10 +29,11 @@ const dialogflowFulfillment = (request, response) => {
 
     function sayWeather(agent){
         agent.add("기능점검중...")
-        /*
-        var url = "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56";
+        
+        var myurl = "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56";
+        agent.add("start of function");
             $.ajax({
-                url : url,
+                url : myurl,
                 method : 'GET',
                 success :  (data)=> {
                     var temp = String((data.main.temp - 272)).substring(0,3); // 온도
@@ -42,9 +43,10 @@ const dialogflowFulfillment = (request, response) => {
                     // var imgURL = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
                     // 아이콘 표시
                     //$('#img').attr("src", imgURL);
+                    agent.add("middle of function");
                   }
             });
-        */
+            agent.add("end of function");
     }
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
     let intentMap = new Map();
