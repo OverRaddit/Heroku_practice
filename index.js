@@ -45,6 +45,7 @@ const dialogflowFulfillment = (request, response) => {
                     // var imgURL = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
                     // 아이콘 표시
                     //$('#img').attr("src", imgURL);
+                    //tnw
                   }
             });
         agent.add("end of function");
