@@ -47,11 +47,28 @@ const dialogflowFulfillment = (request, response) => {
             });
         agent.add("end of function");
     }
+
+    function helloWorld() {
+        return axios({
+          method: "GET",
+          url: "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56",
+          data: "",
+        })
+          .then((response) => {
+            console.log(response.data.main.temp - 272); //Hello World
+            agent.add(response.data.main.temp - 272); 
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", sayHello)
     intentMap.set("Lecture", sayHello)
     intentMap.set("askEmail", sayName)
-    intentMap.set("askWeather", sayWeather)
+    intentMap.set("askWeather", helloWorld)
     agent.handleRequest(intentMap);
 }
