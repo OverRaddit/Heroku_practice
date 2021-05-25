@@ -51,7 +51,7 @@ const dialogflowFulfillment = (request, response) => {
     }
 
     function helloWorld() {
-        return axios({
+        return await axios({
           method: "GET",
           url: "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56",
           data: "",
