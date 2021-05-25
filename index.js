@@ -28,6 +28,8 @@ const dialogflowFulfillment = (request, response) => {
     }
 
     function sayWeather(agent){
+        agent.add("기능점검중...")
+        /*
         var url = "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56";
             $.ajax({
                 url : url,
@@ -42,6 +44,7 @@ const dialogflowFulfillment = (request, response) => {
                     //$('#img').attr("src", imgURL);
                   }
             });
+        */
     }
     // 인텐트와 함수를 1대1 대응 시키는 객체 intentMap
     let intentMap = new Map();
