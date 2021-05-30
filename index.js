@@ -32,7 +32,7 @@ const dialogflowFulfillment = (request, response) => {
     
     function helloWorld() {
         // 2번째시도 axios => DEADLINE EXCEED error
-        var city = agent.request_.body.queryResult.outputContexts[0].parameters['city.original'];
+        var city = agent.request_.body.queryResult.outputContexts[0].parameters['location.original'];
         console.log("======================first======================")
         console.log(city);
         console.log("======================first======================")
