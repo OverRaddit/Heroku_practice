@@ -12,10 +12,6 @@ const openweatherappid = "aca3d57df145ee10c372ff22aefdaa56";
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
-    city = request.body.queryResult.parameters['geo-city']
-    console.log("=================city name====================")
-    console.log(request.body.queryResult.parameters['geo-city'])
-    console.log("============================================")
 })
 
 app.listen(port, () => {
@@ -37,14 +33,15 @@ const dialogflowFulfillment = (request, response) => {
     function helloWorld() {
         // 2번째시도 axios => DEADLINE EXCEED error
         var city = agent.request_.body.queryResult.outputContexts[0].parameters['city.original'];
+        console.log("======================first======================")
+        console.log(city);
+        console.log("======================first======================")
         return axios({
           method: "GET",
           url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openweatherappid}`,
           data: "",
         })
           .then((response) => {
-            console.log("======================first======================")
-            console.log(city);
             console.log("======================second======================")
             console.log(url);
             console.log(response.data.main.temp - 272); //Hello World
