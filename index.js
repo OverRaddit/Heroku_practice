@@ -62,7 +62,7 @@ const dialogflowFulfillment = (request, response) => {
           .then((response) => {
             console.log("======================second======================")
             console.log(response.data.main.temp - 272); //Hello World
-            var temperature = response.data.main.temp - 272
+            var temperature = String(response.data.main.temp - 272)
             console.log("============================================")
             agent.add("오늘 서울의 날씨는 현재 섭씨"+ temperature + "입니다 !"); 
           })
