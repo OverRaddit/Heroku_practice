@@ -30,28 +30,26 @@ const dialogflowFulfillment = (request, response) => {
     }
 
     function sayWeather(agent){
-        agent.add("기능점검중...")
-        
+
+        // 1번째 시도
         var myurl = "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56";
         agent.add("start of function");
             $.ajax({
                 url : myurl,
                 method : 'GET',
                 success :  (data)=> {
+                    // 여기를 주목
+                    console.log(data);
                     var temp = String((data.main.temp - 272)).substring(0,3); // 온도
                     var location = data.name; // 지역이름 
-                    //agent.add('지역 ：' + location + ' 온도　：' + temp　+ "도입니다. "+'\n');
-                    // 아이콘 취득 
-                    // var imgURL = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-                    // 아이콘 표시
-                    //$('#img').attr("src", imgURL);
+                    agent.add('지역 ：' + location + ' 온도　：' + temp　+ "도입니다. "+'\n');
                   }
             });
         agent.add("end of function");
     }
     
     function helloWorld() {
-        /*
+        // 2번째시도 axios => DEADLINE EXCEED error
         return axios({
           method: "GET",
           url: "http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56",
@@ -64,7 +62,7 @@ const dialogflowFulfillment = (request, response) => {
           .catch((error) => {
             console.log(error);
           });
-        */
+        
         
         return axios.get('http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56').then((Response)=>{
           console.log(response.data.main.temp - 272); //Hello World
