@@ -8,7 +8,7 @@ const app = express()
 app.use(bodyParser.json())
 const port = process.env.PORT || 3000
 const openweatherappid = "aca3d57df145ee10c372ff22aefdaa56";
-const city;
+const city = "서울특별시";
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
