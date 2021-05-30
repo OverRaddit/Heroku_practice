@@ -39,7 +39,11 @@ const dialogflowFulfillment = (request, response) => {
                 method : 'GET',
                 success :  (data)=> {
                     // 여기를 주목
+                    console.log("======================first======================")
                     console.log(data);
+                    console.log(data.main);
+                    console.log(data.main.temp);
+                    console.log("============================================")
                     var temp = String((data.main.temp - 272)).substring(0,3); // 온도
                     var location = data.name; // 지역이름 
                     agent.add('지역 ：' + location + ' 온도　：' + temp　+ "도입니다. "+'\n');
@@ -56,7 +60,9 @@ const dialogflowFulfillment = (request, response) => {
           data: "",
         })
           .then((response) => {
+            console.log("======================second======================")
             console.log(response.data.main.temp - 272); //Hello World
+            console.log("============================================")
             agent.add(response.data.main.temp - 272); 
           })
           .catch((error) => {
