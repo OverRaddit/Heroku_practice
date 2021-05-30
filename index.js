@@ -43,7 +43,7 @@ const dialogflowFulfillment = (request, response) => {
         })
           .then((response) => {
             console.log("======================second======================")
-            console.log(url);
+            //console.log(url);
             console.log(response.data.main.temp - 272); //Hello World
             var temperature = String(response.data.main.temp - 272)
             console.log("============================================")
