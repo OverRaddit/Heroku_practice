@@ -38,7 +38,7 @@ const dialogflowFulfillment = (request, response) => {
         console.log("======================first======================")
         return axios({
           method: "GET",
-          url: encodeURI(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openweatherappid}`),
+          url: encodeURI("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=aca3d57df145ee10c372ff22aefdaa56"),
           data: "",
         })
           .then((response) => {
