@@ -12,7 +12,10 @@ const city = "서울특별시";
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
-    city = req.body.queryResult.parameters['geo-city']
+    city = request.body.queryResult.parameters['geo-city']
+    console.log("=================city name====================")
+    console.log(city)
+    console.log("============================================")
 })
 
 app.listen(port, () => {
@@ -48,16 +51,7 @@ const dialogflowFulfillment = (request, response) => {
           })
           .catch((error) => {
             console.log(error);
-          });
-        
-        
-        // return axios.get('http://api.openweathermap.org/data/2.5/weather?q=seoul&appid=aca3d57df145ee10c372ff22aefdaa56').then((Response)=>{
-        //   console.log(response.data.main.temp - 272); //Hello World
-        //   agent.add(response.data.main.temp - 272); 
-        // }).catch((Error)=>{
-        //     console.log(Error);
-        // });
-        
+          });        
     }
       
 
