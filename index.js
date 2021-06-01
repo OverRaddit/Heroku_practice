@@ -32,12 +32,14 @@ const dialogflowFulfillment = (request, response) => {
     
     function helloWorld() {
         // 2번째시도 axios => DEADLINE EXCEED error
-        var city = agent.request_.body.queryResult.outputContexts[0].parameters['location.original']['city'];
+        //var city = agent.request_.body.queryResult.outputContexts[0].parameters['location.original']['city'];
         console.log("======================first======================")
-        console.log(city);
+        //console.log(city);
         city = agent.request_.body.queryResult.outputContexts[0].parameters['location']['city'];
+        date = agent.request_.body.queryResult.outputContexts[0].parameters['date-time.original'];
         console.log("======================second======================")
         console.log(city);
+        console.log(date);
         return axios({
           method: "GET",
           url: encodeURI("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=aca3d57df145ee10c372ff22aefdaa56"),
