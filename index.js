@@ -36,22 +36,25 @@ const dialogflowFulfillment = (request, response) => {
         console.log("======================first======================")
         //console.log(city);
         city = agent.request_.body.queryResult.outputContexts[0].parameters['location']['city'];
-        date = agent.request_.body.queryResult.outputContexts[0].parameters['date-time.original'];
+        original_date = agent.request_.body.queryResult.outputContexts[0].parameters['date-time.original'];
+        cooked_date = agent.request_.body.queryResult.outputContexts[0].parameters['date-time'];
         console.log("======================second======================")
         console.log(city);
         console.log(date);
         return axios({
           method: "GET",
-          url: encodeURI("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=aca3d57df145ee10c372ff22aefdaa56"),
+          //api.openweathermap.org/data/2.5/forecast?q={city name}&appid
+          url: encodeURI("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=aca3d57df145ee10c372ff22aefdaa56"),
           data: "",
         })
           .then((response) => {
             console.log("======================second======================")
-            //console.log(url);
+            console.log(response)
+            console.log(response.data)
             console.log(response.data.main.temp - 272); //Hello World
             var temperature = String(response.data.main.temp - 272)
             console.log("============================================")
-            agent.add("오늘 " + city + "은(는) 현재 섭씨"+ temperature + "입니다 !"); 
+            agent.add(original_date + city + "은(는) 현재 섭씨"+ temperature + "입니다 !"); 
           })
           .catch((error) => {
             console.log(error);
