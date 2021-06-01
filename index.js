@@ -40,7 +40,7 @@ const dialogflowFulfillment = (request, response) => {
         cooked_date = agent.request_.body.queryResult.outputContexts[0].parameters['date-time'];
         console.log("======================second======================")
         console.log(city);
-        console.log(date);
+        console.log(cooked_date);
         return axios({
           method: "GET",
           //api.openweathermap.org/data/2.5/forecast?q={city name}&appid
