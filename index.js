@@ -55,7 +55,7 @@ const dialogflowFulfillment = (request, response) => {
             console.log(response.data)
             console.log("============================================")
             console.log(response.data.main.temp - 272); //Hello World
-            var temperature = String(response.data.main.temp - 272)
+            var temperature = String((response.data.main.temp - 272).toFixed(1));
             console.log("============================================")
             agent.add(original_date + city + "은(는) 현재 섭씨"+ temperature + "입니다 !");
           })
